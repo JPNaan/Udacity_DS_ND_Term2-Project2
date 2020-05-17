@@ -76,12 +76,13 @@ def evaluate_model(model, X_test, y_test, category_names):
     This function evaluates the fitted model using classification report
     '''
     y_pred = model.predict(X_test)
+    print(classification_report(y_test,y_pred,target_names = category_names.values))
 
-    index = 0
-    for label in category_names:
-        print(label, index)
-        print(classification_report(y_test[index], y_pred[index]))
-        index = index + 1
+    #index = 0
+    #for label in category_names:
+    #    print(label, index)
+    #    print(classification_report(y_test[index], y_pred[index]))
+    #    index = index + 1
     return
 
 def save_model(model, model_filepath):
