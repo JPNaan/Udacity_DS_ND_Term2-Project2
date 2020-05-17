@@ -32,6 +32,8 @@ def clean_data(df):
     for column in categories:
         categories[column] = categories[column].str[-1]
         categories[column] = pd.to_numeric(categories[column])#
+    #convert 'related' values to binary with 0 = 0 and (1 or 2) = 1
+    categories['related'] = categories['related'].apply(lambda x: 0 if x == 0 else 1)
 
     #Replace the original categories column in the df with the new
     #category column
